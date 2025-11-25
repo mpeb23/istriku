@@ -461,7 +461,7 @@
         </div>
 
         <div class="team-card">
-            <img src="img/rian.PNG" alt="Team 2">
+            <img src="img/rian.png" alt="Team 2">
             <h3>Pebriana Hera Kuswara,S.Kom</h3>
             <p>General Manager Duta Net Indonesia</p>
         </div>
@@ -745,9 +745,8 @@ function openLightbox(src) {
 }
 </style>
 
-
 <!-- Form Pendaftaran -->
-<<section id="register" class="register" data-aos="fade-up" style="position:relative; overflow:hidden; padding:80px 5%; text-align:center; border-radius:20px; background: rgba(173, 216, 230, 0.7); backdrop-filter: blur(15px); color:#1a1a1a;">
+<section id="register" class="register" data-aos="fade-up" style="position:relative; overflow:hidden; padding:80px 5%; text-align:center; border-radius:20px; background: rgba(173, 216, 230, 0.7); backdrop-filter: blur(15px); color:#1a1a1a;">
 
     <!-- Efek gelembung multi-warna -->
     <div class="register-bubbles">
@@ -758,16 +757,52 @@ function openLightbox(src) {
     <h2 style="font-size:2.8rem; margin-bottom:40px; font-weight:700; color:#1a1a1a;">Form Pendaftaran DutaNet</h2>
 
     <form id="reg-form">
-        <input type="text" id="name" placeholder="Nama Lengkap" required>
-        <input type="text" id="address" placeholder="Alamat Lengkap" required>
-        <input type="tel" id="phone" placeholder="No. HP" required>
-         <input type="date" id="installation" placeholder="Tanggal Pemasangan" required>
-        <select id="package">
-            <option value="15 Mbps - 149K">15 Mbps - 149K</option>
-            <option value="20 Mbps - 174K">20 Mbps - 174K</option>
-            <option value="25 Mbps - 199K">25 Mbps - 199K</option>
-        </select>
-        <textarea id="note" placeholder="Catatan tambahan (opsional)" rows="3"></textarea>
+        <!-- Nama Lengkap -->
+        <div class="form-group">
+            <span class="icon">👤</span>
+            <input type="text" id="name" placeholder="Nama Lengkap" required>
+            <small class="form-desc">Masukkan nama lengkap sesuai KTP</small>
+        </div>
+
+        <!-- Alamat -->
+        <div class="form-group">
+            <span class="icon">🏠</span>
+            <input type="text" id="address" placeholder="Alamat Lengkap" required>
+            <small class="form-desc">Masukkan alamat rumah lengkap</small>
+        </div>
+
+        <!-- No HP -->
+        <div class="form-group">
+            <span class="icon">📱</span>
+            <input type="tel" id="phone" placeholder="No. HP" required>
+            <small class="form-desc">Masukkan nomor HP aktif untuk konfirmasi</small>
+        </div>
+
+        <!-- Tanggal Pemasangan -->
+        <div class="form-group">
+            <span class="icon">📅</span>
+            <input type="date" id="installation" placeholder="Tanggal Pemasangan" required>
+            <small class="form-desc">Pilih tanggal pemasangan yang diinginkan</small>
+        </div>
+
+        <!-- Paket -->
+        <div class="form-group">
+            <span class="icon">💻</span>
+            <select id="package">
+                <option value="15 Mbps - 149K">15 Mbps - 149K</option>
+                <option value="20 Mbps - 174K">20 Mbps - 174K</option>
+                <option value="25 Mbps - 199K">25 Mbps - 199K</option>
+            </select>
+            <small class="form-desc">Pilih paket internet yang sesuai kebutuhan</small>
+        </div>
+
+        <!-- Catatan -->
+        <div class="form-group">
+            <span class="icon">📝</span>
+            <textarea id="note" placeholder="Catatan tambahan (opsional)" rows="3"></textarea>
+            <small class="form-desc">Isi jika ada catatan atau permintaan khusus</small>
+        </div>
+
         <button type="submit">Daftar Sekarang</button>
     </form>
 </section>
@@ -785,9 +820,39 @@ function openLightbox(src) {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     position: relative;
     z-index:1;
+}
+
+/* Form Group with Icon */
+.form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.form-group .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size:1.2rem;
+    color:#0077cc;
+    pointer-events:none;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding-left:45px; /* ruang untuk icon */
+}
+
+/* Keterangan Form */
+#reg-form .form-desc {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top:5px;
+    text-align: left;
+    padding-left:5px;
 }
 
 /* Glassmorphism Inputs */
@@ -877,10 +942,50 @@ function openLightbox(src) {
 /* Responsive */
 @media(max-width:768px){
     .register h2 { font-size:2rem; }
-    #reg-form { gap:15px; }
+    #reg-form { gap:12px; }
     #reg-form button { font-size:1rem; padding:12px 15px; }
+    .form-group .icon { left:10px; font-size:1rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea { padding-left:40px; }
 }
 </style>
+
+<script>
+document.getElementById('reg-form').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const address = document.getElementById('address').value;
+    const phone = document.getElementById('phone').value;
+    const installation = document.getElementById('installation').value;
+    const packageSelected = document.getElementById('package').value;
+    const note = document.getElementById('note').value;
+
+    // Logo perusahaan URL publik
+    const logoUrl = 'https://mpeb23.github.io/dutanet/img/logo.png'; // ganti dengan URL logo asli
+
+    // Pesan WA
+    const waMessage = `
+*Form Pendaftaran DutaNet*
+
+${logoUrl}
+
+👤 Nama: ${name}
+🏠 Alamat: ${address}
+📱 No HP: ${phone}
+📅 Tanggal Pemasangan: ${installation}
+💻 Paket: ${packageSelected}
+📝 Catatan: ${note}
+    `;
+
+    const waNumber = "6281380637870"; 
+    const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
+
+    window.open(waLink, '_blank');
+});
+</script>
+
 
 
   <!-- Coverage Area -->
@@ -1161,4 +1266,3 @@ function showToast(msg, duration = 3000){
 </script>
 </body>
 </html>
-
