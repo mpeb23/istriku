@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>DutaNet - High Speed Internet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+header{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 5%;
+    background:white; /* Warna solid */
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
+        :root{--bg:linear-gradient(135deg,#ffffff,#e8f0ff);--text:#002b55;--accent:#004aad;}
+        body{background:var(--bg);color:var(--text);transition:background .3s,color .3s;font-size:16px;}
+        html{scroll-behavior:smooth;}
+
+        nav.nav-menu a{
+            margin:0 10px;text-decoration:none;color:var(--accent);
+            font-weight:600;transition:.3s;
+        }
+        nav.nav-menu a:hover{color:#e5007e;}
+
+       
+
+        body { opacity:0; animation:fadeIn 1.2s ease-in-out forwards; }
+        @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+        header{display:flex;justify-content:space-between;align-items:center;padding:15px 5%;background:white;box-shadow:0 2px 10px rgba(0,0,0,0.1);}    
+        header h2{color:#e5007e;font-weight:700;font-size:28px;}
+        header p{font-weight:600;color:var(--accent);}
+        .header-right{display:flex;align-items:center;gap:12px}
+        .dark{--bg:#071028;--text:#e6eefc;--accent:#9ec8ff}
+
+        .hero{display:flex;flex-wrap:wrap;align-items:center;padding:60px 5%;gap:20px;position:relative;overflow:hidden;}
+        .hero::before{
+    content:"";
+    position:absolute;
+    top:-10%;
+    left:-10%;
+    width:120%;
+    height:120%;
+    background:radial-gradient(circle, rgba(0,74,173,0.2) 10%, transparent 70%);
+    animation:heroMove 8s linear infinite alternate;
+    pointer-events:none;
+}
+        @keyframes heroMove{0%{transform:translate(0,0);}100%{transform:translate(-40px,-30px);} }
+
+        .hero-text{flex:1;min-width:280px;}
+        .hero-text h1{font-size:58px;font-weight:700;line-height:1.1;}
+        .hero-text h1 span{color:var(--accent);}
+        .hero-text p{margin-top:10px;font-size:18px;font-weight:500;}
+        .hero-text button,.wa-btn{margin-top:20px;background:var(--accent);border:none;padding:15px 25px;color:white;font-size:18px;border-radius:10px;cursor:pointer;transition:.3s;}
+        .hero-text button:hover{transform:scale(1.05);}
+        .hero img{flex:1;max-width:480px;width:100%;position:relative;z-index:2;}
+
+        .wa-float{position:fixed;width:65px;height:65px;bottom:25px;right:25px;background:#25D366;color:#FFF;border-radius:50px;text-align:center;font-size:32px;display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:.3s;}
+        .wa-float:hover{transform:scale(1.12);background:#128C7E;}
+
+        .price-section{text-align:center;padding:50px 5%;}
+        .price-boxes{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:30px;}
+        .price-card{width:270px;border-radius:18px;padding:25px;color:white;font-weight:600;transition:.4s;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.2);border:2px solid transparent;}
+        .start{background:#007bff;} .boost{background:#e91e63;} .blast{background:#4caf50;}
+        .price-card h2{font-size:42px;}
+        .price-card:hover{transform:scale(1.08);box-shadow:0 0 25px rgba(255,255,255,0.65);border-color:rgba(255,255,255,0.7);}
+
+        .about,.faq,.register{padding:50px 5%;text-align:center;background:white;}
+        .about p{font-size:18px;margin-top:10px;max-width:800px;margin:auto;}
+
+        .testimoni{padding:50px 5%;text-align:center;}
+        .testi-slider{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding-bottom:10px;margin-top:20px;}
+        .testi{flex:0 0 300px;scroll-snap-align:center;background:white;padding:20px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+
+        details{background:#f4f8ff;padding:15px;border-radius:10px;margin:10px auto;max-width:800px;cursor:pointer;}
+        summary{font-weight:700;font-size:18px;}
+
+        .map-wrap{max-width:1000px;margin:20px auto;border-radius:15px;overflow:hidden;}
+        iframe{width:100%;height:350px;border:0;}
+
+        .register form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px;}
+        input,select,textarea{padding:14px;border-radius:10px;border:1px solid #ccc;font-size:16px;}
+        form button{padding:15px;background:var(--accent);border:none;color:white;font-size:18px;border-radius:10px;cursor:pointer;transition:.3s;}
+        form button:hover{transform:scale(1.02);}
+
+        .contact{background:var(--accent);color:white;padding:30px 5%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;}
+        .contact div{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600;}
+
+        .toast{
+            position:fixed;left:50%;transform:translateX(-50%) translateY(30px);bottom:70px;
+            background:rgba(0,0,0,0.85);color:white;padding:14px 22px;border-radius:12px;
+            opacity:0;transition:.5s ease;z-index:2000;
+        }
+        .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+        @media(max-width:768px){.hero-text h1{font-size:42px;} .price-card{width:90%;}}
+        
+    </style>
+</head>
+
+<body id="page-body">
+
+<header>
+    <a href="#hero"><img src="img/logo.png" alt="DutaNet Logo" style="width:95px;height:55px;"></a>
+    <div>
+        <h2>DutaNet</h2>
+        <p>Sinyal Dekat, Warga Erat</p>
+    </div>
+
+
+
+<nav class="nav-menu">
+    <a href="#hero">Home</a>
+    <a href="#about">Tentang Kami</a>
+    <a href="#paket">Paket Internet</a>
+    <a href="#team">Team Kami</a>
+    <a href="#galeri">Galeri Kegiatan</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#faq">FAQ</a>
+    <a href="#register">Pendaftaran</a>
+    <a href="#coverage">Kontak</a>
+</nav>
+<style>
+    /* Style Menu Desktop */
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* Tombol Hamburger (hidden di PC) */
+.menu-toggle {
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Style untuk HP & Tablet */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: block; /* tampil di HP / tablet */
+        z-index: 9999;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        gap: 20px;
+        transition: 0.3s ease;
+        box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+        z-index: 9998;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu a {
+        font-size: 22px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+}
+</style>
+
+     <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+</header>
+
+<section id="hero" class="hero" data-aos="fade-up">
+    <div class="hero-text">
+        <h1>HIGH <span>SPEED</span><br> INTERNET</h1>
+        <p>Nikmati internet cepat, stabil, dan tanpa batas kuota dengan DutaNet!</p>
+        <a href="https://wa.me/6281380637870" target="_blank"><button>PASANG SEKARANG</button></a>
+    </div>
+    <img src="img/logo.png" alt="Router">
+</section>
+
+<section id="about" class="about" data-aos="fade-up">
+    <h2>Tentang Kami</h2>
+    <p>DutaNet menyediakan layanan internet fiber berkualitas tinggi untuk rumah, UMKM, dan kantor.</p>
+</section>
+
+<section id="paket" class="price-section" data-aos="zoom-in">
+    <h2>Paket Internet</h2>
+    <div class="price-boxes">
+        <div class="price-card start"><p>15 Mbps</p><h2>149K</h2><small>Up To</small></div>
+        <div class="price-card boost"><p>20 Mbps</p><h2>174K</h2><small>Up To</small></div>
+        <div class="price-card blast"><p>25 Mbps</p><h2>199K</h2><small>Up To</small></div>
+    </div>
+</section>
+<!-- TEAM SECTION -->
+<section id="team" class="team" data-aos="fade-up" style="padding:50px 5%;text-align:center;background:white;">
+    <h2>Team Kami</h2>
+    <p style="max-width:800px;margin:10px auto 30px;">Berikut adalah tim terbaik kami yang selalu siap membantu kebutuhan internet Anda.</p>
+
+    <div class="team-container" style="display:flex;flex-wrap:wrap;justify-content:center;gap:25px;">
+        <div class="team-card" style="width:240px;background:#fff;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);padding:15px;">
+            <img src="https://0.academia-photos.com/68675214/17821755/17840717/s200_beki.subaeki.jpg" alt="Team 1" style="width:100%;border-radius:12px;">
+            <h3 style="margin-top:10px;font-size:20px;">Beki Subaeki ,S.Kom., M.Kom., Ph.D.</h3>
+            <p>Owner Duta Kencana Indonesia</p>
+        </div>
+
+        <div class="team-card" style="width:240px;background:#fff;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);padding:15px;">
+            <img src="img/rian.png" alt="Team 2" style="width:100%;border-radius:12px;">
+            <h3 style="margin-top:10px;font-size:20px;">Pebriana Hera Kuswara,S.Kom</h3>
+            <p>General Manager Duta Net Indonesia</p>
+        </div>
+
+        <div class="team-card" style="width:240px;background:#fff;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);padding:15px;">
+            <img src="team3.jpg" alt="Team 3" style="width:100%;border-radius:12px;">
+            <h3 style="margin-top:10px;font-size:20px;">M Daniel Hilmansyah</h3>
+            <p>Teknisi</p>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section id="galeri" class="galeri" data-aos="zoom-in" 
+style="padding:50px 5%;text-align:center; background:rgba(214, 213, 213, 0.3);">
+    <h2>Galeri Kegiatan</h2>
+    <p style="max-width:800px;margin:10px auto 30px;">Dokumentasi pemasangan, maintenance, dan aktivitas tim DutaNet.</p>
+
+    <div class="galeri-grid" 
+    style="
+        max-width:1200px;
+        margin:auto;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:15px;
+        justify-items:center;">
+        
+        <img onclick="openLightbox(this.src)" src="https://mediacenter.palangkaraya.go.id/wp-content/uploads/sites/24/2022/03/DSC09744_1-01.jpeg.jpeg" style="width:100%;border-radius:15px;cursor:pointer;">
+        <img onclick="openLightbox(this.src)" src="https://hexacompareblogs.wordpress.com/wp-content/uploads/2012/03/servis-komputer-di-itcompare.jpg" style="width:100%;border-radius:15px;cursor:pointer;">
+        <img onclick="openLightbox(this.src)" src="https://beritamanado.com/wp-content/uploads/2015/07/Direktur-Service-Management-XL-Ongki-Kurniawan-kanan-melakukan-peninjauan-di-salah-satu-BTS-dalam-kegiatan-uji-kesiapan-jaringan-dan-layanan-XL-untuk-menyambut-Lebaran.jpg" style="width:100%;border-radius:15px;cursor:pointer;">
+        <img onclick="openLightbox(this.src)" src="https://www.idn.id/wp-content/uploads/2024/06/Teknisi-Jaringan-dan-tugasnya-1024x576.jpg" style="width:100%;border-radius:15px;cursor:pointer;">
+        <img onclick="openLightbox(this.src)" src="https://mgmall.s3.amazonaws.com/img/082024/fac0772312603bf698b070d5321e72ff123bab8e.jpg" style="width:100%;border-radius:15px;cursor:pointer;">
+        <img onclick="openLightbox(this.src)" src="https://lenterakalimantan.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-24-at-17.02.06.jpeg" style="width:100%;border-radius:15px;cursor:pointer;">
+    </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni" class="testimoni" data-aos="fade-up" style="padding:60px 5%;text-align:center;">
+    <h2>Testimoni Pelanggan</h2>
+
+    <div class="testi-slider" id="testiSlider">
+        <div class="testi">⭐⭐⭐⭐⭐<br>Internet stabil untuk kerja online!<br>- Ilham</div>
+        <div class="testi">⭐⭐⭐⭐⭐<br>Harga terjangkau!<br>- Dewi</div>
+        <div class="testi">⭐⭐⭐⭐⭐<br>Streaming lancar tanpa buffering!<br>- Aldi</div>
+    </div>
+</section>
+
+<style>
+    .testi-slider {
+        display: flex;
+        gap: 20px;
+        text-align: center;
+        justify-content: center;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .testi {
+        min-width: 250px;
+        padding: 20px;
+        font-size: 18px;
+        background: rgba(0, 123, 255, 0.5); /* biru transparan */
+        border: 1px solid rgba(0, 123, 255, 0.7);
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+        color: white;
+        font-weight: 500;
+        transition: transform 0.5s;
+    }
+
+    @media (max-width: 600px) {
+        .testi {
+            min-width: 220px;
+            font-size: 16px;
+        }
+    }
+</style>
+
+<script>
+let slider = document.getElementById("testiSlider");
+setInterval(() => {
+    slider.appendChild(slider.firstElementChild);
+}, 3000);
+</script>
+
+<!--FAQ -->
+<section id="faq" class="faq" data-aos="fade-up">
+    <h2>FAQ</h2>
+    <details><summary>Apakah unlimited kuota?</summary><p>Ya, semua paket Unlimited!</p></details>
+    <details><summary>Berapa lama proses pemasangan?</summary><p>1-2 hari setelah pendaftaran.</p></details>
+</section>
+<!-- Form Pendaftaran -->
+<section id="register" class="register" data-aos="fade-up">
+    <h2>Form Pendaftaran</h2>
+    <form id="reg-form">
+        <input type="text" id="name" placeholder="Nama Lengkap" required>
+        <input type="text" id="address" placeholder="Alamat Lengkap" required>
+        <input type="tel" id="phone" placeholder="No. HP" required>
+        <select id="package">
+            <option value="15 Mbps - 149K">15 Mbps - 149K</option>
+            <option value="20 Mbps - 174K">20 Mbps - 174K</option>
+            <option value="25 Mbps - 199K">25 Mbps - 199K</option>
+        </select>
+        <textarea id="note" placeholder="Catatan tambahan (opsional)" rows="3"></textarea>
+        <button type="submit">Daftar Sekarang</button>
+    </form>
+</section>
+
+
+<section id="coverage" class="coverage" data-aos="fade-up" style="padding:50px 5%;">
+    <h2 style="text-align:center;">Coverage Area & Kontak</h2>
+
+    <div class="coverage-wrap" style="display:flex;flex-wrap:wrap;gap:25px;align-items:flex-start;justify-content:center;margin-top:25px;">
+
+        <!-- MAP -->
+        <div class="map-wrap" style="flex:1;min-width:300px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1178.8092472784342!2d107.4921355960729!3d-6.390661935475788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e696d9de217719d%3A0xa73ed2c54a5962cb!2sPERUMAHAN%20SADJATI%20GARDEN%20CITY%203!5e0!3m2!1sid!2sid!4v1763993991033!5m2!1sid!2sid"
+            allowfullscreen="" loading="lazy" style="border:0;width:100%;height:350px;border-radius:15px;"></iframe>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="coverage-info" style="flex:1;min-width:280px;background:#fff;border-radius:15px;padding:25px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+            <h3 style="margin-bottom:15px;">Informasi Kontak</h3>
+            <p><strong><h2>Duta Net </h2></strong>   
+            <p><strong>Alamat:</strong><br>
+            Perumahan Sadjati Garden City 3 Bllok A 21, Cikampek</p>
+
+            <p><strong>Telepon / WhatsApp:</strong><br>
+            <a href="https://wa.me/6281380637870" target="_blank" style="color:#007bff;font-weight:bold;">+62 813-8063-7870</a></p>
+
+            <p><strong>Email:</strong><br>
+            <a href="mailto:dutanetfiber@gmail.com" style="color:#007bff;font-weight:bold;">dutanetfiber@gmail.com</a></p>
+        </div>
+    </div>
+</section>
+
+
+<a class="wa-float" href="https://wa.me/6281380637870" target="_blank">💬</a>
+
+<div id="toast" class="toast">Pendaftaran diproses — membuka WhatsApp...</div>
+<footer style="text-align:center;padding:15px;background:#002b55;color:white;">
+    © 2025 DutaNet Indonesia. All Rights Reserved.
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({duration:700, once:true});
+
+const body = document.getElementById('page-body');
+const toggle = document.getElementById('dark-toggle');
+const toast = document.getElementById('toast');
+
+function setDark(isDark){
+    if(isDark){ body.classList.add('dark'); toggle.textContent='☀'; }
+    else{ body.classList.remove('dark'); toggle.textContent='🌙'; }
+    localStorage.setItem('dutanet_dark', isDark?'1':'0');
+}
+
+if(localStorage.getItem('dutanet_dark')==='1') setDark(true);
+toggle.addEventListener('click', ()=>{ setDark(!body.classList.contains('dark')); });
+
+const form = document.getElementById('reg-form');
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = encodeURIComponent(document.getElementById('name').value);
+    const address = encodeURIComponent(document.getElementById('address').value);
+    const phone = encodeURIComponent(document.getElementById('phone').value);
+    const pack = encodeURIComponent(document.getElementById('package').value);
+    const note = encodeURIComponent(document.getElementById('note').value);
+
+    const waUrl = `https://wa.me/6281380637870?text=Pendaftaran%20DutaNet%0ANama:%20${name}%0AAlamat:%20${address}%0ANoHP:%20${phone}%0APaket:%20${pack}%0ANote:%20${note}`;
+
+    toast.classList.add("show");
+    setTimeout(()=>{ toast.classList.remove("show"); }, 3000);
+
+    window.open(waUrl, '_blank');
+    form.reset();
+
+});
+</script>
+
+<script>
+// Smooth scrolling dengan animasi easing
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 50, // menyesuaikan jarak dengan navbar
+                behavior: "smooth"
+            });
+        }
+    });
+});
+function toggleMenu() {
+    document.querySelector(".nav-menu").classList.toggle("active");
+}
+
+</script>
+
+<script>
+    // Tutup menu otomatis setelah klik link
+document.querySelectorAll(".nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.querySelector(".nav-menu").classList.remove("active");
+    });
+});
+
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.onkeydown = function(e) {
+    if(e.keyCode == 123) return false; // F12
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 73) return false; // Ctrl+Shift+I
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 67) return false; // Ctrl+Shift+C
+    if(e.ctrlKey && e.keyCode == 85) return false; // Ctrl+U
+    if(e.ctrlKey && e.keyCode == 83) return false; // Ctrl+S
+};
+</script>
+
+</body>
+</html>
