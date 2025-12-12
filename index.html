@@ -185,7 +185,7 @@
      <div class="menu-toggle" onclick="toggleMenu()" aria-label="Buka menu">&#9776;</div>
 </header>
 
-<section id="hero" class="hero" data-aos="fade-up">
+< id="hero" class="hero" data-aos="fade-up">
     <div class="hero-text">
         <h1>HIGH <span>SPEED</span><br> INTERNET</h1>
         <p>Nikmati internet cepat, stabil, dan tanpa batas kuota dengan DutaNet!</p>
@@ -745,10 +745,10 @@ function openLightbox(src) {
 }
 </style>
 
-<!-- Form Pendaftaran -->
+<!-- Form Pendaftaran (Google Form Embed) -->
 <section id="register" class="register" data-aos="fade-up" style="position:relative; overflow:hidden; padding:80px 5%; text-align:center; border-radius:20px; background: rgba(173, 216, 230, 0.7); backdrop-filter: blur(15px); color:#1a1a1a;">
 
-    <!-- Efek gelembung multi-warna -->
+    <!-- Efek gelembung multi-warna (jika mau dipakai lagi) -->
     <div class="register-bubbles">
         <span></span><span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span><span></span>
@@ -756,56 +756,16 @@ function openLightbox(src) {
 
     <h2 style="font-size:2.8rem; margin-bottom:40px; font-weight:700; color:#1a1a1a;">Form Pendaftaran DutaNet</h2>
 
-    <form id="reg-form">
-        <!-- Nama Lengkap -->
-        <div class="form-group">
-            <span class="icon">👤</span>
-            <input type="text" id="name" placeholder="Nama Lengkap" required>
-            <small class="form-desc">Masukkan nama lengkap sesuai KTP</small>
-        </div>
+    <!-- Embed Google Form -->
+    <div style="width:100%;max-width:800px;margin:auto;">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdidhlMrcgY_07YAYKFNLM4GYgcaL0bndc88VHwsjUnhnkKCw/viewform?embedded=true"
+                width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">
+            Memuat…
+        </iframe>
+    </div>
 
-        <!-- Alamat -->
-        <div class="form-group">
-            <span class="icon">🏠</span>
-            <input type="text" id="address" placeholder="Alamat Lengkap" required>
-            <small class="form-desc">Masukkan alamat rumah lengkap</small>
-        </div>
-
-        <!-- No HP -->
-        <div class="form-group">
-            <span class="icon">📱</span>
-            <input type="tel" id="phone" placeholder="No. HP" required>
-            <small class="form-desc">Masukkan nomor HP aktif untuk konfirmasi</small>
-        </div>
-
-        <!-- Tanggal Pemasangan -->
-        <div class="form-group">
-            <span class="icon">📅</span>
-            <input type="date" id="installation" placeholder="Tanggal Pemasangan" required>
-            <small class="form-desc">Pilih tanggal pemasangan yang diinginkan</small>
-        </div>
-
-        <!-- Paket -->
-        <div class="form-group">
-            <span class="icon">💻</span>
-            <select id="package">
-                <option value="15 Mbps - 149K">15 Mbps - 149K</option>
-                <option value="20 Mbps - 174K">20 Mbps - 174K</option>
-                <option value="25 Mbps - 199K">25 Mbps - 199K</option>
-            </select>
-            <small class="form-desc">Pilih paket internet yang sesuai kebutuhan</small>
-        </div>
-
-        <!-- Catatan -->
-        <div class="form-group">
-            <span class="icon">📝</span>
-            <textarea id="note" placeholder="Catatan tambahan (opsional)" rows="3"></textarea>
-            <small class="form-desc">Isi jika ada catatan atau permintaan khusus</small>
-        </div>
-
-        <button type="submit">Daftar Sekarang</button>
-    </form>
 </section>
+
 
 <style>
 /* Form Styling */
@@ -1266,6 +1226,7 @@ function showToast(msg, duration = 3000){
 </script>
 </body>
 </html>
+
 
 
 
