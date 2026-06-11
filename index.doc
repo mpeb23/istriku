@@ -1,132 +1,517 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DutaNet - Maintenance</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love ❤️</title>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            height: 100vh;
-            background: radial-gradient(circle at top, #1e1e1e, #0c0c0c);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            color: white;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-        /* Floating Glow Particles */
-        .glow {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: #00e5ff33;
-            filter: blur(90px);
-            border-radius: 50%;
-            animation: float 8s infinite ease-in-out;
-        }
-        .glow:nth-child(2) {
-            width: 300px;
-            height: 300px;
-            left: 60%;
-            top: 10%;
-            background: #0084ff33;
-            animation-duration: 10s;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-40px); }
-            100% { transform: translateY(0px); }
-        }
+body{
+    overflow-x:hidden;
+    color:#fff;
+    background:linear-gradient(-45deg,#0f172a,#312e81,#7c3aed,#ec4899);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+}
 
-        .card {
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-            padding: 40px;
-            border-radius: 22px;
-            backdrop-filter: blur(18px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 25px rgba(0,0,0,0.3);
-            animation: fadeIn 1.5s ease;
-        }
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+#stars{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+}
 
-        .title {
-            font-size: 50px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            background: linear-gradient(90deg, #00eaff, #0084ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:#fff;
+    border-radius:50%;
+    animation:blink 3s infinite;
+}
 
-        .subtitle {
-            font-size: 20px;
-            opacity: 0.9;
-            margin-bottom: 25px;
-        }
+@keyframes blink{
+    50%{opacity:.2}
+}
 
-        .maintenance-img {
-            width: 230px;
-            animation: bounce 2.8s infinite ease-in-out;
-        }
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+.card{
+    width:100%;
+    max-width:950px;
+    text-align:center;
+    padding:40px;
+    border-radius:30px;
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(15px);
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
 
-        .loader {
-            margin: 25px auto;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            border: 6px solid rgba(255,255,255,0.2);
-            border-top: 6px solid #00c3ff;
-            animation: spin 1s linear infinite;
-        }
+.title{
+    font-size:3rem;
+    margin-bottom:10px;
+    text-shadow:
+    0 0 10px #fff,
+    0 0 20px #ff66c4,
+    0 0 40px #ff66c4,
+    0 0 80px #ff66c4;
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+.subtitle{
+    margin-bottom:25px;
+}
 
-        .footer-text {
-            margin-top: 15px;
-            opacity: 0.8;
-        }
-    </style>
+.photo{
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid rgba(255,255,255,.5);
+    box-shadow:0 0 40px rgba(255,255,255,.4);
+}
+
+.cake{
+    font-size:90px;
+    margin:20px 0;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.message{
+    max-width:700px;
+    margin:20px auto;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+.btn{
+    border:none;
+    padding:14px 25px;
+    margin:5px;
+    border-radius:50px;
+    cursor:pointer;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(45deg,#ff0080,#ff4da6);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px) scale(1.05);
+}
+
+.gallery-section{
+    padding:80px 20px;
+}
+
+.gallery-title{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:2rem;
+}
+
+.gallery{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+.heart{
+    position:fixed;
+    font-size:20px;
+    pointer-events:none;
+    z-index:999;
+}
+
+.balloon{
+    position:fixed;
+    width:60px;
+    height:80px;
+    border-radius:50%;
+    bottom:-120px;
+    z-index:999;
+}
+
+.balloon:after{
+    content:'';
+    position:absolute;
+    width:2px;
+    height:60px;
+    background:white;
+    top:80px;
+    left:50%;
+}
+
+.popup{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:90%;
+    max-width:550px;
+    background:white;
+    color:#333;
+    border-radius:25px;
+    padding:30px;
+    display:none;
+    z-index:99999;
+}
+
+.popup h2{
+    color:#ff0080;
+    margin-bottom:15px;
+}
+
+.close{
+    margin-top:20px;
+    border:none;
+    padding:10px 20px;
+    border-radius:20px;
+    background:#ff0080;
+    color:white;
+    cursor:pointer;
+}
+
+/* LOCK OVERLAY */
+#lock-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:999999;
+}
+
+/* blur background behind overlay */
+#lock-overlay{
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+.lock-card{
+    background:linear-gradient(180deg,#0f172a,#1f2937);
+    color:#fff;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    width:90%;
+    max-width:420px;
+    box-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+.lock-icon{
+    font-size:52px;
+    margin-bottom:10px;
+}
+.lock-input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:2px solid rgba(255,255,255,.08);
+    margin-top:12px;
+    background:rgba(255,255,255,0.03);
+    color:#fff;
+    outline:none;
+}
+.unlock-btn{
+    margin-top:12px;
+    padding:10px 18px;
+    border-radius:12px;
+    border:none;
+    background:linear-gradient(90deg,#06b6d4,#7c3aed);
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+}
+.unlock-hint{
+    margin-top:8px;
+    font-size:0.9rem;
+    color:rgba(255,255,255,0.7);
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Glowing Elements -->
-    <div class="glow"></div>
-    <div class="glow"></div>
+<div id="stars"></div>
 
-    <div class="card">
-        <h1 class="title">DutaNet</h1>
-        <p class="subtitle">Website Sedang Dalam Perbaikan</p>
-
-        <img class="maintenance-img" src="https://cdn-icons-png.flaticon.com/512/7816/7816978.png" alt="Maintenance Illustration">
-
-        <div class="loader"></div>
-
-        <p class="footer-text">Kami sedang meningkatkan layanan. Terima kasih telah menunggu.</p>
+<!-- LOCK OVERLAY -->
+<div id="lock-overlay" aria-hidden="false">
+    <div class="lock-card">
+        <div class="lock-icon">🔒</div>
+        <h2>Halaman Terkunci Khusus Yang Ulang Tahun</h2>
+        <p class="unlock-hint">Masukkan kata sandi Ulang Tahun Mu untuk membuka.</p>
+        <input id="lock-password" class="lock-input" type="password" placeholder="Kata sandi (opsional)">
+        <div>
+            <button class="unlock-btn" onclick="tryUnlock()">Buka</button>
+        </div>
     </div>
+</div>
+
+<section class="hero">
+
+<div class="card">
+
+<h1 class="title">
+🎉 Selamat Ulang Tahun Sayang 🎉
+</h1>
+
+<p class="subtitle">
+29 Tahun • Semoga Selalu Bahagia ❤️
+</p>
+
+<img src="fat.jpg" class="photo">
+
+<div class="cake">🎂</div>
+
+<p class="message">
+Selamat ulang tahun istriku tercinta.
+Terima kasih telah menjadi alasan kebahagiaanku setiap hari.
+Semoga semua impianmu tercapai dan Allah selalu memberikan kesehatan,
+kebahagiaan, serta keberkahan dalam hidupmu.
+Aku mencintaimu hari ini, esok, dan selamanya. ❤️
+</p>
+
+<button class="btn" onclick="releaseBalloons()">
+🎈 Lepas Balon
+</button>
+
+<button class="btn" onclick="showLetter()">
+💌 Surat Cinta
+</button>
+
+<button class="btn" onclick="fireworks()">
+🎆 Kembang Api
+</button>
+
+
+
+</div>
+
+</section>
+
+<section class="gallery-section">
+
+
+</section>
+
+<div class="popup" id="popup">
+
+<h2>💌 Untuk Istriku Tercinta</h2>
+
+<p>
+Selamat ulang tahun sayangku.<br><br>
+
+Terima kasih telah hadir dan mewarnai hidupku.
+Terima kasih atas cinta, perhatian dan kesabaranmu.
+Semoga Allah selalu menjaga setiap langkahmu,
+mengabulkan semua doa-doamu,
+dan memberikan kebahagiaan yang tidak pernah putus.
+
+Aku mencintaimu hari ini,
+besok,
+dan selamanya ❤️
+</p>
+
+<button class="close" onclick="closeLetter()">
+Tutup
+</button>
+
+</div>
+
+<audio id="music" loop>
+<source src="jam.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// BINTANG
+for(let i=0;i<200;i++){
+    const star=document.createElement('div');
+    star.className='star';
+    star.style.left=Math.random()*100+'%';
+    star.style.top=Math.random()*100+'%';
+    star.style.animationDelay=Math.random()*3+'s';
+    document.getElementById('stars').appendChild(star);
+}
+
+// HATI BERTERBANGAN
+setInterval(()=>{
+    const heart=document.createElement('div');
+    heart.className='heart';
+    heart.innerHTML='❤️';
+    heart.style.left=Math.random()*100+'vw';
+
+    const duration=4+Math.random()*4;
+
+    heart.animate([
+        {transform:'translateY(100vh)',opacity:1},
+        {transform:'translateY(-120vh)',opacity:0}
+    ],{
+        duration:duration*1000
+    });
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },duration*1000);
+
+},300);
+
+// BALON
+function releaseBalloons(){
+
+    for(let i=0;i<50;i++){
+
+        const balloon=document.createElement('div');
+
+        balloon.className='balloon';
+
+        balloon.style.left=Math.random()*100+'vw';
+
+        balloon.style.background=
+        `hsl(${Math.random()*360},80%,60%)`;
+
+        const duration=5000+Math.random()*5000;
+
+        balloon.animate([
+            {transform:'translateY(0)'},
+            {transform:'translateY(-130vh)'}
+        ],{
+            duration:duration,
+            easing:'linear'
+        });
+
+        document.body.appendChild(balloon);
+
+        setTimeout(()=>{
+            balloon.remove();
+        },duration);
+    }
+}
+
+// POPUP
+function showLetter(){
+    document.getElementById('popup').style.display='block';
+}
+
+function closeLetter(){
+    document.getElementById('popup').style.display='none';
+}
+
+// MUSIK
+function playMusic(){
+    document.getElementById('music').play();
+}
+
+// KEMBANG API
+function fireworks(){
+
+    for(let i=0;i<300;i++){
+
+        const p=document.createElement('div');
+
+        p.style.position='fixed';
+        p.style.left='50%';
+        p.style.top='50%';
+        p.style.width='8px';
+        p.style.height='8px';
+        p.style.borderRadius='50%';
+        p.style.background=
+        `hsl(${Math.random()*360},100%,50%)`;
+
+        document.body.appendChild(p);
+
+        const x=(Math.random()-0.5)*1200;
+        const y=(Math.random()-0.5)*1200;
+
+        p.animate([
+            {
+                transform:'translate(0,0)',
+                opacity:1
+            },
+            {
+                transform:`translate(${x}px,${y}px)`,
+                opacity:0
+            }
+        ],{
+            duration:2000
+        });
+
+        setTimeout(()=>{
+            p.remove();
+        },2000);
+    }
+}
+
+// LOCK OVERLAY SCRIPT
+document.addEventListener('DOMContentLoaded',()=>{
+    const overlay=document.getElementById('lock-overlay');
+    const unlocked=localStorage.getItem('site_unlocked');
+    if(unlocked==='true'){
+        overlay.style.display='none';
+    } else {
+        overlay.style.display='flex';
+    }
+});
+
+function tryUnlock(){
+    const pw=document.getElementById('lock-password').value.trim();
+    const overlay=document.getElementById('lock-overlay');
+    // Hanya terima kata sandi 110697
+    if(pw === '110697'){
+        localStorage.setItem('site_unlocked','true');
+        overlay.style.display='none';
+        // Putar musik otomatis setelah membuka kunci (abaikan error autoplay)
+        try{ playMusic(); }catch(e){}
+    } else {
+        alert('Kata sandi salah. Coba lagi.');
+    }
+}
+</script>
 
 </body>
 </html>
